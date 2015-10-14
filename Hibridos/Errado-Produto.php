@@ -59,6 +59,10 @@ class Testa {
         $depreciacao = $p->calculaDepreciacao(365);
         
         $valor = $lucro - $depreciacao;
+		
+		//Praticamente a mesma coisa que fazer isso: 
+		//$p->_nome = 'Sofá'; 
+		//se a variável fosse pública
     }
     
 }
