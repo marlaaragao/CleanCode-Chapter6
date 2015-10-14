@@ -21,6 +21,14 @@ class Produto {
         
         $this->conectaBanco();
     }
+	
+	function calculaLucro() {
+        //Implementação
+    }
+    
+    function calculaDepreciacao($periodo) {
+        //Implementação
+    }
             
     function save() {
         $stmt = $this->_connection->prepare('INSERT INTO produto(id, nome, preco) VALUES (null, ?, ?)');
@@ -30,12 +38,12 @@ class Produto {
         $stmt->execute();
     }
     
-    function findAll() {
-        //
+    function find() {
+        //Implementaçao
     }
     
     function delete() {
-        //
+        //Implementaçao
     }
 	
 	function conectaBanco() {

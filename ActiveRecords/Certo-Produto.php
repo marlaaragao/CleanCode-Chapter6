@@ -20,6 +20,14 @@ class Produto extends ActiveRecords {
         $this->_tableName = 'produtos';
         parent::__construct($this->_tableName);
     }
+	
+	function calculaLucro() {
+        //Implementação
+    }
+    
+    function calculaDepreciacao($periodo) {
+        //Implementação
+    }
             
     //Funções pertinentes da regra de negocio (...)
 }
