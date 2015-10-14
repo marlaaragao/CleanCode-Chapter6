@@ -36,7 +36,7 @@ class Testa {
 	
 	function exemplo() {
 		$p = new Produto($_POST['nome'], $_POST['preco']);
-		$p->save();
+		$p->save($p);
 	}
 	
 }

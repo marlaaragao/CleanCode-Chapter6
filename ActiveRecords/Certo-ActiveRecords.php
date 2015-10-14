@@ -20,9 +20,10 @@ class ActiveRecords {
      * Implementação para insert usando nome da tabela e array associativo de dados
      * @param type $dataArray Ex: array('nomeColuna' => 'valorColuna')
      */
-    public function insert($dataArray) {
+    public function save($object) {
         
         $tableName = $this->_tableName;
+		$dataArray = (array) $object;
         
         $sql = 'INSERT INTO ' . $tableName . ' ( ';
         $sql .= implode(',', array_keys($dataArray)) . ') VALUES (';
