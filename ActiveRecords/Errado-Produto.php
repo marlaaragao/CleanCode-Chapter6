@@ -10,33 +10,16 @@ use PDO;
 
 class Produto {
     
-    private $_id;
     private $_nome;
     private $_preco;
     private $_connection;
     
-    function __construct($id, $nome, $preco) {
-        $this->_id = $id;
+    function __construct($nome, $preco) {
+
         $this->_nome = $nome;
         $this->_preco = $preco;
         
         $this->conectaBanco();
-    }
-    
-    function conectaBanco() {
-        
-        $ini_array = parse_ini_file("sample.ini");
-        $servername = $ini_array['server'];
-        $username = $ini_array['user'];
-        $password = $ini_array['pass'];
-        
-        try {
-            $this->_connection = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-            $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        } catch (PDOException $e) {
-            echo "Falha na conexão com o banco: " . $e->getMessage();
-        }
     }
             
     function save() {
@@ -52,7 +35,32 @@ class Produto {
     }
     
     function delete() {
-        
+        //
     }
+	
+	function conectaBanco() {
+        
+        $ini_array = parse_ini_file("sample.ini");
+        $servername = $ini_array['server'];
+        $username = $ini_array['user'];
+        $password = $ini_array['pass'];
+        
+        try {
+            $this->_connection = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+            $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            echo "Falha na conexão com o banco: " . $e->getMessage();
+        }
+    }
+}
+
+class Testa {
+	
+	function exemplo() {
+		$p = new Produto($_POST['nome'], $_POST['preco']);
+		$p->save();
+	}
+	
 }
 

@@ -8,13 +8,12 @@
 
 class Produto extends ActiveRecords {
     
-    private $_id;
     private $_nome;
     private $_preco;
     private $_tableName;
     
-    function __construct($id, $nome, $preco) {
-        $this->_id = $id;
+    function __construct($nome, $preco) {
+
         $this->_nome = $nome;
         $this->_preco = $preco;
         
@@ -23,5 +22,14 @@ class Produto extends ActiveRecords {
     }
             
     //Funções pertinentes da regra de negocio (...)
+}
+
+class Testa {
+	
+	function exemplo() {
+		$p = new Produto($_POST['nome'], $_POST['preco']);
+		$p->save();
+	}
+	
 }
 
