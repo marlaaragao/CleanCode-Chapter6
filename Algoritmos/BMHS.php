@@ -1,5 +1,7 @@
-class BM {
-	
+<?php
+
+class BMHS {
+
     function bmhs() {
 
         $i = 0;
@@ -11,29 +13,28 @@ class BM {
         $n = strlen($texto);
         $pular = array();
         $tamanho_alfabeto = 28;
-        
+
         for ($k = 0; $k < $tamanho_alfabeto; $k++) {
             $pular[$k] = $m + 1;
         }
         for ($k = 1; $k <= $m; $k++) {
             $pular[$padrao[$k - 1]] = $m - $k + 1;
         }
-        
+
         $i = $m;
-        
+
         while ($i <= $n) {
             $k = $i;
             $j = $m;
-            while($j > 0 && $texto[$k - 1] == $padrao[$j - 1]) {
+            while ($j > 0 && $texto[$k - 1] == $padrao[$j - 1]) {
                 $k--;
                 $j--;
             }
             if ($j == 0) {
-                echo 'Casamento na posição: ' . ($k) . '<br>';                
+                echo 'Casamento na posição: ' . ($k) . '<br>';
             }
             $i += $pular[$texto[$i]];
-        }    
+        }
     }
-
 
 }
